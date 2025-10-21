@@ -1,123 +1,198 @@
 ---
 ---
-// 1. Import the Google Font
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap');
-
-// 2. Import the default Minima theme styles
-@import "minima";
-
-// 3. Add all of our "Tokyo Night" overrides
-
-/* 1. Main Body Styling (Applies to ALL pages) */
+// 1. Define Fonts and Base
 body {
     font-family: 'Fira Code', monospace;
-    background-color: #1a1b26; // Dark background
-    color: #a9b1d6;       // Main text color
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* 2. Style the Header (Website Name) */
+.wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+// 2. Color Variables (Light & Dark Mode)
+:root {
+    --bg-color: #f0f2f5;
+    --text-color: #1c1e21;
+    --card-bg: #ffffff;
+    --card-border: #dce1e6;
+    --card-hover-bg: #f5f5f5;
+    --icon-color: #333;
+    --title-color: #000;
+    --subtle-text: #555;
+    --button-bg: #e4e6eb;
+    --button-text: #050505;
+    --button-hover-bg: #d8dadf;
+}
+
+.dark-mode {
+    --bg-color: #1a2a3a; /* Dark blue/teal from screenshot */
+    --text-color: #e4e6eb;
+    --card-bg: #2a3b4c; /* Lighter teal from screenshot */
+    --card-border: #3a4c5d;
+    --card-hover-bg: #3a4c5d;
+    --icon-color: #e4e6eb;
+    --title-color: #ffffff;
+    --subtle-text: #b0b3b8;
+    --button-bg: #3a4c5d;
+    --button-text: #e4e6eb;
+    --button-hover-bg: #4a5c6d;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+// 3. Site Header (dipsfeed | icons)
+.site-header {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--card-border);
+}
+.site-header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .site-title {
-    color: #7aa2f7; // Bright blue
-    font-size: 2.5rem; 
-    font-weight: 700;
-}
-.site-title:hover {
-    color: #9abdf5;
-}
-
-// Hide the default nav links
-.site-nav {
-    display: none; 
-}
-
-/* 3. Style the page content area (Applies to ALL pages) */
-.page-content, .wrapper {
-    background-color: #1a1b26; // Ensure background is dark
-}
-
-/* 4. Style ALL titles (e.g., Article titles, "News Feed") */
-h1, h2, h3, h4, h5, h6 {
-    color: #bb9af7; // Purple for headers
-}
-
-/* 5. Style all links */
-a {
-    color: #7aa2f7; // Blue for links
-}
-a:hover {
-    color: #9abdf5;
-}
-
-/* 6. Style the "News Feed" Title (from index.html) */
-.section-title {
-    color: #bb9af7; // Purple
-    font-size: 2rem;
-    font-weight: 700;
-    border-bottom: 2px solid #414868; 
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-}
-
-/* 7. Style the Article Box (from index.html) */
-.article-box {
-    background-color: #24283b; // Card background
-    border: 1px solid #414868; // Card border
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    transition: border-color 0.2s ease-in-out;
-}
-.article-box:hover {
-    border-color: #7aa2f7; // Highlight with blue on hover
-}
-
-.article-box h3 {
-    color: #c0caf5; // A light text color for the title
-    margin-top: 0;
     font-size: 1.5rem;
-}
-.article-box h3 a {
-    color: inherit; 
+    font-weight: 700;
+    color: var(--title-color);
     text-decoration: none;
 }
-.article-box h3 a:hover {
-    text-decoration: underline;
+.site-nav {
+    display: flex;
+    gap: 10px;
 }
+.nav-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--icon-color);
+    padding: 5px;
+}
+.nav-icon svg {
+    stroke: var(--icon-color);
+}
+/* Dark mode toggle logic */
+.dark-mode .sun-icon { display: block; }
+.dark-mode .moon-icon { display: none; }
+.sun-icon { display: none; }
+.moon-icon { display: block; }
 
-.article-date {
-    font-size: 0.9rem;
-    color: #7dcfff; // Light blue
+// 4. Homepage Layout (Icon, Titles, Button)
+.home-header {
+    text-align: center;
+    padding: 40px 0 20px 0;
 }
-
-/* 8. Style the PDF Link as a Button */
-.pdf-btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    margin-top: 15px;
-    border-radius: 0.5rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-    background-color: transparent;
-    color: #7aa2f7;
-    border: 1px solid #7aa2f7;
-}
-.pdf-btn:hover {
-    background-color: rgba(122, 162, 247, 0.1);
-}
-
-/* 9. Style the Article Page itself */
-.post-header {
+.news-icon {
+    width: 60px;
+    height: 60px;
     margin-bottom: 20px;
+}
+.main-title {
+    font-size: 3rem;
+    color: var(--title-color);
+    margin: 0 0 20px 0;
+}
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--card-border);
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+.home-button:hover {
+    background-color: var(--button-hover-bg);
+}
+.home-button svg {
+    stroke: var(--button-text);
+}
+.sub-title {
+    font-size: 1rem;
+    color: var(--subtle-text);
+    margin: 30px 0 10px 0;
+    text-align: left;
+    font-weight: 400;
+}
+
+// 5. Post Grid (2-column)
+.post-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+// 6. Post Box Styling
+.post-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background-color 0.2s;
+}
+.post-box:hover {
+    background-color: var(--card-hover-bg);
+}
+.post-box-icon {
+    flex-shrink: 0;
+    color: var(--subtle-text);
+}
+.post-box-icon svg {
+    stroke: var(--subtle-text);
+}
+.post-box-title {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: var(--title-color);
+    font-weight: 500;
+}
+.post-box-date {
+    font-size: 0.9rem;
+    color: var(--subtle-text);
+}
+
+// 7. Single Post Page Styling
+.post-header {
+    margin-bottom: 30px;
 }
 .post-title {
     font-size: 2.5rem;
-    color: #bb9af7; // Purple
+    color: var(--title-color);
+    margin-bottom: 10px;
+}
+.post-date {
+    color: var(--subtle-text);
 }
 .post-content {
-    color: #a9b1d6; // Main text color
-}
-.post-content p, .post-content li {
     font-size: 1.1rem;
     line-height: 1.7;
+}
+.post-content p {
+    margin-bottom: 1.5em;
+}
+
+// 8. Mobile Responsive (Single Column)
+@media (max-width: 768px) {
+    .post-grid {
+        grid-template-columns: 1fr; // Single column on mobile
+    }
+    .main-title {
+        font-size: 2.5rem;
+    }
 }
