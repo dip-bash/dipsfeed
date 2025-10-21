@@ -1,3 +1,10 @@
+---
+layout: post
+title: "My First Article"
+date: 2025-10-21
+pdf_file: /files/file1.pdf
+---
+
 The past 24 hours have marked a definitive shift in the AI industry: the future isn't about better chatbots, it's about **autonomous AI agents** that can think, use tools, and complete multi-step goals. This software revolution is being financed by an escalating hardware arms race, while a fierce struggle over ethics, privacy, and creative rights plays out globally.
 
 ---
