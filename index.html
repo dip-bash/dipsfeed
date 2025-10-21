@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<h2>{{ site.news_feed_title }}</h2>
+
+<div class="article-list">
+
+  {% for post in site.posts %}
+    
+    <div class="article-box" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 10px;">
+      
+      <h3>
+        <a href="{{ site.baseurl }}{{ post.url }}">
+          {{ post.title }}
+        </a>
+      </h3>
+      
+      <span>
+        Date: {{ post.date | date: "%d-%m-%Y" }}
+      </span>
+
+      {% if post.pdf_file %}
+        <p>
+          <a href="{{ site.baseurl }}{{ post.pdf_file }}" target="_blank">Download Attached PDF</a>
+        </p>
+      {% endif %}
+
+    </div>
+
+  {% endfor %}
+  </div>
