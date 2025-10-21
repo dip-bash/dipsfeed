@@ -1,0 +1,11 @@
+# Welcome to Jekyll!
+
+# Site Settings
+title: My News Website
+description: "A simple news feed site built with Jekyll."
+baseurl: "/dipsfeed" # <--- IMPORTANT: Change "my-news-site" to your repo name
+url: "https://dip-bash.github.io/" # <--- IMPORTANT: Change "YOUR-USERNAME"
+theme: jekyll-theme-minima
+
+# Settings for your news feed
+news_feed_title: "News Feed"
