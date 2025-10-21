@@ -1,33 +1,28 @@
 ---
 layout: default
 ---
-
-<h2 class="section-title">{{ site.news_feed_title }}</h2>
-
-<div class="article-list">
-  {% for post in site.posts %}
-    
-    <div class="article-box">
-      
-      <h3>
-        <a href="{{ site.baseurl }}{{ post.url }}">
-          {{ post.title }}
+<div class="home-layout">
+    <div class="home-header">
+        <img src="{{ site.baseurl }}/assets/images/feed_icon.svg" alt="News Icon" class="news-icon" />
+        <h1 class="main-title">{{ site.news_feed_title }}</h1>
+        <a href="{{ site.baseurl }}/" class="home-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            HOME
         </a>
-      </h3>
-      
-      <span class="article-date">
-        Date: {{ post.date | date: "%d-%m-%Y" }}
-      </span>
-
-      {% if post.pdf_file %}
-        <p>
-          <a href="{{ site.baseurl }}{{ post.pdf_file }}" target="_blank" class="pdf-btn">
-            Download Attached PDF
-          </a>
-        </p>
-      {% endif %}
-
+        <h2 class="sub-title">news</h2>
     </div>
 
-  {% endfor %}
+    <div class="post-grid">
+        {% for post in site.posts %}
+            <a href="{{ site.baseurl }}{{ post.url }}" class="post-box">
+                <span class="post-box-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                </span>
+                <div class="post-box-content">
+                    <h3 class="post-box-title">{{ post.title }}</h3>
+                    <span class="post-box-date">{{ post.date | date: "%B %d, %Y" }}</span>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
 </div>
