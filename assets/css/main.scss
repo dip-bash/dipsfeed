@@ -1,4 +1,205 @@
-/* 7a. Single Post Page - Metadata (From Step 1) */
+---
+---
+// 1. Define Fonts and Base
+body {
+    font-family: 'Fira Code', monospace;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+// 2. Color Variables (Light & Dark Mode)
+:root {
+    --bg-color: #f0f2f5;
+    --text-color: #1c1e21;
+    --card-bg: #ffffff;
+    --card-border: #dce1e6;
+    --card-hover-bg: #f5f5f5;
+    --icon-color: #333;
+    --title-color: #000;
+    --subtle-text: #555;
+    --button-bg: #e4e6eb;
+    --button-text: #050505;
+    --button-hover-bg: #d8dadf;
+}
+
+.dark-mode {
+    --bg-color: #1a2a3a; /* Dark blue/teal from screenshot */
+    --text-color: #e4e6eb;
+    --card-bg: #2a3b4c; /* Lighter teal from screenshot */
+    --card-border: #3a4c5d;
+    --card-hover-bg: #3a4c5d;
+    --icon-color: #e4e6eb;
+    --title-color: #ffffff;
+    --subtle-text: #b0b3b8;
+    --button-bg: #3a4c5d;
+    --button-text: #e4e6eb;
+    --button-hover-bg: #4a5c6d;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+// 3. Site Header (dipsfeed | icons)
+.site-header {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--card-border);
+}
+.site-header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.site-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--title-color);
+    text-decoration: none;
+}
+.site-nav {
+    display: flex;
+    gap: 10px;
+}
+.nav-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--icon-color);
+    padding: 5px;
+}
+.nav-icon svg {
+    stroke: var(--icon-color);
+}
+/* Dark mode toggle logic */
+.dark-mode .sun-icon { display: block; }
+.dark-mode .moon-icon { display: none; }
+.sun-icon { display: none; }
+.moon-icon { display: block; }
+
+// 4. Homepage Layout (Icon, Titles, Button)
+.home-header {
+    text-align: center;
+    padding: 40px 0 20px 0;
+}
+.news-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+.main-title {
+    font-size: 3rem;
+    color: var(--title-color);
+    margin: 0 0 20px 0;
+}
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--card-border);
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+.home-button:hover {
+    background-color: var(--button-hover-bg);
+}
+.home-button svg {
+    stroke: var(--button-text);
+}
+.sub-title {
+    font-size: 1rem;
+    color: var(--subtle-text);
+    margin: 30px 0 10px 0;
+    text-align: left;
+    font-weight: 400;
+}
+
+// 5. Post Grid (2-column)
+.post-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+// 6. Post Box Styling
+.post-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background-color 0.2s;
+}
+.post-box:hover {
+    background-color: var(--card-hover-bg);
+}
+.post-box-icon {
+    flex-shrink: 0;
+    color: var(--subtle-text);
+}
+.post-box-icon svg {
+    stroke: var(--subtle-text);
+}
+.post-box-content {
+    flex-grow: 1;
+}
+.post-box-title {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: var(--title-color);
+    font-weight: 500;
+}
+.post-box-date {
+    font-size: 0.9rem;
+    color: var(--subtle-text);
+}
+
+// 7. Single Post Page Styling
+.post-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.post-title {
+    font-size: 2.5rem;
+    color: var(--title-color);
+    margin-bottom: 10px;
+}
+.post-date {
+    color: var(--subtle-text);
+}
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+.post-content p {
+    margin-bottom: 1.5em;
+}
+.post-content h1, .post-content h2, .post-content h3 {
+    color: var(--title-color);
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+.post-content strong {
+    color: var(--title-color);
+}
+
+// 8. Single Post Page - Metadata (From your screenshot)
 .post-meta {
     border-top: 1px solid var(--card-border);
     border-bottom: 1px solid var(--card-border);
@@ -37,11 +238,27 @@
     background-color: var(--button-hover-bg);
 }
 
-/* 7b. Single Post Page - Navigation (From Step 1) */
+// 9. Single Post Page - Navigation (From your screenshot)
 .post-nav {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid var(--card-border);
     display: flex;
     gap: 15px;
+}
+
+// 10. Mobile Responsive (Single Column)
+@media (max-width: 768px) {
+    .post-grid {
+        grid-template-columns: 1fr; // Single column on mobile
+    }
+    .main-title {
+        font-size: 2.5rem;
+    }
+    .post-title {
+        font-size: 2rem;
+    }
+    .meta-item {
+        grid-template-columns: 100px 1fr; // Adjust for smaller labels
+    }
 }
