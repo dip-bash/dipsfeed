@@ -1,0 +1,123 @@
+---
+---
+// 1. Import the Google Font
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap');
+
+// 2. Import the default Minima theme styles
+@import "minima";
+
+// 3. Add all of our "Tokyo Night" overrides
+
+/* 1. Main Body Styling (Applies to ALL pages) */
+body {
+    font-family: 'Fira Code', monospace;
+    background-color: #1a1b26; // Dark background
+    color: #a9b1d6;       // Main text color
+}
+
+/* 2. Style the Header (Website Name) */
+.site-title {
+    color: #7aa2f7; // Bright blue
+    font-size: 2.5rem; 
+    font-weight: 700;
+}
+.site-title:hover {
+    color: #9abdf5;
+}
+
+// Hide the default nav links
+.site-nav {
+    display: none; 
+}
+
+/* 3. Style the page content area (Applies to ALL pages) */
+.page-content, .wrapper {
+    background-color: #1a1b26; // Ensure background is dark
+}
+
+/* 4. Style ALL titles (e.g., Article titles, "News Feed") */
+h1, h2, h3, h4, h5, h6 {
+    color: #bb9af7; // Purple for headers
+}
+
+/* 5. Style all links */
+a {
+    color: #7aa2f7; // Blue for links
+}
+a:hover {
+    color: #9abdf5;
+}
+
+/* 6. Style the "News Feed" Title (from index.html) */
+.section-title {
+    color: #bb9af7; // Purple
+    font-size: 2rem;
+    font-weight: 700;
+    border-bottom: 2px solid #414868; 
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* 7. Style the Article Box (from index.html) */
+.article-box {
+    background-color: #24283b; // Card background
+    border: 1px solid #414868; // Card border
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: border-color 0.2s ease-in-out;
+}
+.article-box:hover {
+    border-color: #7aa2f7; // Highlight with blue on hover
+}
+
+.article-box h3 {
+    color: #c0caf5; // A light text color for the title
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+.article-box h3 a {
+    color: inherit; 
+    text-decoration: none;
+}
+.article-box h3 a:hover {
+    text-decoration: underline;
+}
+
+.article-date {
+    font-size: 0.9rem;
+    color: #7dcfff; // Light blue
+}
+
+/* 8. Style the PDF Link as a Button */
+.pdf-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-top: 15px;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    background-color: transparent;
+    color: #7aa2f7;
+    border: 1px solid #7aa2f7;
+}
+.pdf-btn:hover {
+    background-color: rgba(122, 162, 247, 0.1);
+}
+
+/* 9. Style the Article Page itself */
+.post-header {
+    margin-bottom: 20px;
+}
+.post-title {
+    font-size: 2.5rem;
+    color: #bb9af7; // Purple
+}
+.post-content {
+    color: #a9b1d6; // Main text color
+}
+.post-content p, .post-content li {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
