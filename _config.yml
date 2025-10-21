@@ -7,4 +7,7 @@ baseurl: "/dipsfeed" # <--- IMPORTANT: Change "my-news-site" to your repo name
 url: "https://dip-bash.github.io/" # <--- IMPORTANT: Change "YOUR-USERNAME"
 # theme: minima
 # Settings for your news feed
-news_feed_title: "News Feed"
+news_feed_title: "Dip's Feed"
+# Add this plugin to make sure SCSS files are compiled
+plugins:
+  - jekyll-sass-converter
