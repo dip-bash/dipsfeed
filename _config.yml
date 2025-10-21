@@ -5,6 +5,6 @@ title: My News Website
 description: "A simple news feed site built with Jekyll."
 baseurl: "/dipsfeed" # <--- IMPORTANT: Change "my-news-site" to your repo name
 url: "https://dip-bash.github.io/" # <--- IMPORTANT: Change "YOUR-USERNAME"
-remote_theme: jekyll/jekyll-theme-minima
+remote_theme: jekyll/minima
 # Settings for your news feed
 news_feed_title: "News Feed"
