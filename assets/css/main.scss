@@ -3,7 +3,6 @@
 // 1. Import new Google Fonts
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Sanchez&display=swap');
 
-// 2. Define Fonts and Base
 body {
     font-family: 'Inter', sans-serif; // <-- Set Inter as the default
     margin: 0;
@@ -11,9 +10,7 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-// ... (keep all the .wrapper and color variable code)
-
-// 3. Apply Heading Font
+// 2. Apply Heading Font
 h1, h2, h3, h4, h5, h6,
 .site-title,
 .main-title,
@@ -23,14 +20,14 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Sanchez', serif; // <-- Set Sanchez for all headings
 }
 
-
+// 3. Wrapper
 .wrapper {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-// 2. Color Variables (Light & Dark Mode)
+// 4. Color Variables (Light & Dark Mode)
 :root {
     --bg-color: #f0f2f5;
     --text-color: #1c1e21;
@@ -64,7 +61,7 @@ body {
     color: var(--text-color);
 }
 
-// 3. Site Header (dipsfeed | icons)
+// 5. Site Header (dipsfeed | icons)
 .site-header {
     padding: 10px 0;
     border-bottom: 1px solid var(--card-border);
@@ -82,6 +79,7 @@ body {
 }
 .site-nav {
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 .nav-icon {
@@ -100,7 +98,7 @@ body {
 .sun-icon { display: none; }
 .moon-icon { display: block; }
 
-// 4. Homepage Layout (Icon, Titles, Button)
+// 6. Homepage Layout (Icon, Titles, Button)
 .home-header {
     text-align: center;
     padding: 40px 0 20px 0;
@@ -142,14 +140,14 @@ body {
     font-weight: 400;
 }
 
-// 5. Post Grid (2-column)
+// 7. Post Grid (2-column)
 .post-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
-// 6. Post Box Styling
+// 8. Post Box Styling
 .post-box {
     display: flex;
     align-items: flex-start;
@@ -186,7 +184,7 @@ body {
     color: var(--subtle-text);
 }
 
-// 7. Single Post Page Styling
+// 9. Single Post Page Styling
 .post-header {
     margin-bottom: 30px;
     text-align: center;
@@ -200,10 +198,12 @@ body {
     color: var(--subtle-text);
 }
 .post-content {
-    font-size: 1.1rem;
     line-height: 1.7;
 }
-.post-content p {
+.post-content p, .post-content li {
+    /* This variable is controlled by the slider */
+    font-size: calc(1.1rem * var(--font-size-multiplier, 1));
+    transition: font-size 0.1s ease-in-out;
     margin-bottom: 1.5em;
 }
 .post-content h1, .post-content h2, .post-content h3 {
@@ -215,7 +215,7 @@ body {
     color: var(--title-color);
 }
 
-// 8. Single Post Page - Metadata (From your screenshot)
+// 10. Single Post Page - Metadata
 .post-meta {
     border-top: 1px solid var(--card-border);
     border-bottom: 1px solid var(--card-border);
@@ -226,18 +226,15 @@ body {
     gap: 10px;
     font-size: 0.9rem;
 }
-
 .meta-item {
     display: grid;
     grid-template-columns: 120px 1fr; /* Label and value */
     align-items: center;
 }
-
 .meta-label {
     font-weight: 500;
     color: var(--subtle-text);
 }
-
 .pdf-tag {
     background-color: var(--button-bg);
     color: var(--button-text);
@@ -249,12 +246,11 @@ body {
     display: inline-block;
     transition: background-color 0.2s;
 }
-
 .pdf-tag:hover {
     background-color: var(--button-hover-bg);
 }
 
-// 9. Single Post Page - Navigation (From your screenshot)
+// 11. Single Post Page - Navigation
 .post-nav {
     margin-top: 40px;
     padding-top: 20px;
@@ -263,8 +259,7 @@ body {
     gap: 15px;
 }
 
-// 10. Mobile Responsive (Single Column)
-// 10. Mobile Responsive (Single Column) - ALREADY EXISTS
+// 12. Responsive - Tablet & Main Mobile
 @media (max-width: 768px) {
     .post-grid {
         grid-template-columns: 1fr; // Single column on mobile
@@ -280,7 +275,7 @@ body {
     }
 }
 
-// 11. FIX: Article Page Overflow on Small Screens
+// 13. Responsive - FIX: Article Page Overflow on Small Screens
 @media (max-width: 480px) {
     .meta-item {
         grid-template-columns: 1fr; // Stack label and value
@@ -293,18 +288,16 @@ body {
     }
 }
 
-// 12. NEW: Font Size Slider Styles
+// 14. NEW: Font Size Slider Styles
 .font-slider-container {
     display: flex;
     align-items: center;
     gap: 8px;
     color: var(--subtle-text);
 }
-
 .font-slider-container i {
     font-size: 0.9rem;
 }
-
 input[type="range"].font-slider {
     -webkit-appearance: none;
     appearance: none;
@@ -316,11 +309,9 @@ input[type="range"].font-slider {
     transition: opacity .2s;
     border-radius: 2px;
 }
-
 input[type="range"].font-slider:hover {
     opacity: 1;
 }
-
 input[type="range"].font-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -331,7 +322,6 @@ input[type="range"].font-slider::-webkit-slider-thumb {
     border-radius: 50%;
     border: 2px solid var(--card-bg);
 }
-
 input[type="range"].font-slider::-moz-range-thumb {
     width: 16px;
     height: 16px;
