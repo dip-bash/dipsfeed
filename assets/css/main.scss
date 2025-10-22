@@ -264,6 +264,7 @@ body {
 }
 
 // 10. Mobile Responsive (Single Column)
+// 10. Mobile Responsive (Single Column) - ALREADY EXISTS
 @media (max-width: 768px) {
     .post-grid {
         grid-template-columns: 1fr; // Single column on mobile
@@ -277,4 +278,65 @@ body {
     .meta-item {
         grid-template-columns: 100px 1fr; // Adjust for smaller labels
     }
+}
+
+// 11. FIX: Article Page Overflow on Small Screens
+@media (max-width: 480px) {
+    .meta-item {
+        grid-template-columns: 1fr; // Stack label and value
+        gap: 5px;
+    }
+    .pdf-tag {
+        width: 100%; // Make PDF tag full-width
+        text-align: center;
+        box-sizing: border-box; // Ensure padding doesn't add to width
+    }
+}
+
+// 12. NEW: Font Size Slider Styles
+.font-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--subtle-text);
+}
+
+.font-slider-container i {
+    font-size: 0.9rem;
+}
+
+input[type="range"].font-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80px;
+    height: 4px;
+    background: var(--card-border);
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    border-radius: 2px;
+}
+
+input[type="range"].font-slider:hover {
+    opacity: 1;
+}
+
+input[type="range"].font-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--title-color);
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid var(--card-bg);
+}
+
+input[type="range"].font-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--title-color);
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid var(--card-bg);
 }
