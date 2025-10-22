@@ -1,8 +1,9 @@
 ---
 ---
-// 1. Import new Google Fonts
+// 1. Import Google Fonts (as confirmed working)
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Sanchez&display=swap');
 
+// 2. Define Fonts
 body {
     font-family: 'Inter', sans-serif; // <-- Set Inter as the default
     margin: 0;
@@ -10,7 +11,7 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-// 2. Apply Heading Font
+// 3. Apply Heading Font
 h1, h2, h3, h4, h5, h6,
 .site-title,
 .main-title,
@@ -20,14 +21,14 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Sanchez', serif; // <-- Set Sanchez for all headings
 }
 
-// 3. Wrapper
+// 4. Wrapper
 .wrapper {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-// 4. Color Variables (Light & Dark Mode)
+// 5. Color Variables (Light & Dark Mode)
 :root {
     --bg-color: #f0f2f5;
     --text-color: #1c1e21;
@@ -61,7 +62,7 @@ body {
     color: var(--text-color);
 }
 
-// 5. Site Header (dipsfeed | icons)
+// 6. Site Header (dipsfeed | icons)
 .site-header {
     padding: 10px 0;
     border-bottom: 1px solid var(--card-border);
@@ -98,7 +99,7 @@ body {
 .sun-icon { display: none; }
 .moon-icon { display: block; }
 
-// 6. Homepage Layout (Icon, Titles, Button)
+// 7. Homepage Layout (Icon, Titles, Button)
 .home-header {
     text-align: center;
     padding: 40px 0 20px 0;
@@ -140,14 +141,14 @@ body {
     font-weight: 400;
 }
 
-// 7. Post Grid (2-column)
+// 8. Post Grid (2-column)
 .post-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
-// 8. Post Box Styling
+// 9. Post Box Styling
 .post-box {
     display: flex;
     align-items: flex-start;
@@ -184,7 +185,7 @@ body {
     color: var(--subtle-text);
 }
 
-// 9. Single Post Page Styling
+// 10. Single Post Page Styling
 .post-header {
     margin-bottom: 30px;
     text-align: center;
@@ -215,7 +216,7 @@ body {
     color: var(--title-color);
 }
 
-// 10. Single Post Page - Metadata
+// 11. Single Post Page - Metadata
 .post-meta {
     border-top: 1px solid var(--card-border);
     border-bottom: 1px solid var(--card-border);
@@ -250,7 +251,7 @@ body {
     background-color: var(--button-hover-bg);
 }
 
-// 11. Single Post Page - Navigation
+// 12. Single Post Page - Navigation
 .post-nav {
     margin-top: 40px;
     padding-top: 20px;
@@ -259,7 +260,7 @@ body {
     gap: 15px;
 }
 
-// 12. Responsive - Tablet & Main Mobile
+// 13. Responsive - Tablet & Main Mobile
 @media (max-width: 768px) {
     .post-grid {
         grid-template-columns: 1fr; // Single column on mobile
@@ -275,7 +276,7 @@ body {
     }
 }
 
-// 13. Responsive - FIX: Article Page Overflow on Small Screens
+// 14. Responsive - FIX: Article Page Overflow on Small Screens
 @media (max-width: 480px) {
     .meta-item {
         grid-template-columns: 1fr; // Stack label and value
@@ -288,7 +289,7 @@ body {
     }
 }
 
-// 14. NEW: Font Size Slider Styles
+// 15. NEW: Font Size Slider Styles
 .font-slider-container {
     display: flex;
     align-items: center;
