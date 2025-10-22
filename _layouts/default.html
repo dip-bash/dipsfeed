@@ -4,20 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: site.title }}</title>
+    
+    <!-- This is the link to your stylesheet -->
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Slider Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- We do NOT need Google Font links here, as they are in main.scss -->
+
 </head>
 <body>
     <header class="site-header">
         <div class="wrapper">
             <a class="site-title" href="{{ site.baseurl }}/">{{ site.title | default: "dipsfeed" }}</a>
             <nav class="site-nav">
+
+                <!-- NEW: Font Size Slider (Only on Post Pages) -->
+                {% if page.layout == 'post' %}
+                <div class="font-slider-container">
+                    <i class="fas fa-font" style="font-size: 0.8rem;"></i> <!-- Small 'A' icon -->
+                    <input type="range" min="0.8" max="1.5" value="1" step="0.1" class="font-slider" id="font-size-slider">
+                    <i class="fas fa-font" style="font-size: 1.1rem;"></i> <!-- Large 'A' icon -->
+                </div>
+                {% endif %}
+
+                <!-- Dark Mode Toggle Button (Existing Code) -->
                 <button id="dark-mode-toggle" class="nav-icon" aria-label="Toggle Dark Mode">
+                    <!-- Sun Icon -->
                     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <!-- Moon Icon -->
                     <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                </button>            
+                </button>
             </nav>
         </div>
     </header>
@@ -28,17 +46,14 @@
         </div>
     </main>
 
+    <!-- Dark Mode Script (Existing) -->
     <script>
-        // Dark Mode Toggle Script
         (function() {
             var toggle = document.getElementById('dark-mode-toggle');
             var html = document.documentElement;
-
-            // Set initial state from localStorage
             if (localStorage.getItem('theme') === 'dark') {
                 html.classList.add('dark-mode');
             }
-
             toggle.addEventListener('click', function() {
                 if (html.classList.contains('dark-mode')) {
                     html.classList.remove('dark-mode');
@@ -47,6 +62,31 @@
                     html.classList.add('dark-mode');
                     localStorage.setItem('theme', 'dark');
                 }
+            });
+        })();
+    </script>
+
+    <!-- NEW: Font Sizer Script -->
+    <script>
+        (function() {
+            var slider = document.getElementById('font-size-slider');
+            if (!slider) return; // Don't run this script if the slider isn't on the page
+
+            var html = document.documentElement;
+            var FONT_SIZE_KEY = 'fontSize';
+
+            // 1. Apply a saved font size on page load
+            var savedSize = localStorage.getItem(FONT_SIZE_KEY);
+            if (savedSize) {
+                html.style.setProperty('--font-size-multiplier', savedSize);
+                slider.value = savedSize;
+            }
+
+            // 2. Listen for changes on the slider
+            slider.addEventListener('input', function(e) {
+                var newSize = e.target.value;
+                html.style.setProperty('--font-size-multiplier', newSize);
+                localStorage.setItem(FONT_SIZE_KEY, newSize);
             });
         })();
     </script>
